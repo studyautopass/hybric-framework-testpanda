@@ -15,7 +15,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Account_01_Register {
+public class Level_01_Account_01_Register {
 	//mở trình duyệt
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");

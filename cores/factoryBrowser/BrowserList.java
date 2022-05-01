@@ -1,4 +1,4 @@
-package common;
+package factoryBrowser;
 
 public enum BrowserList {
 

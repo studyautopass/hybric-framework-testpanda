@@ -1,4 +1,4 @@
-package pageObject;
+package pageObject.admin;
 
 public class HomePageObject {
 

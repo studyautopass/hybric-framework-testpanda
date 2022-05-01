@@ -1,4 +1,4 @@
-package pageFactory;
+package factoryBrowser;
 
 public class ChromeDriverManager {
 
