@@ -15,11 +15,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import common.BasePage;
 
-public class Level_01_Account_01_Register {
-	//mở trình duyệt
+public class Level_02_Apply_BasePage_Part_I {
+	//Khai báo : Declare
 	WebDriver driver;
+	BasePage basePage;
+	
+	//Khai báo + khởi tạo+ Initial
+	
 	String projectPath = System.getProperty("user.dir");
+
 	
 	
 	
@@ -27,7 +33,8 @@ public class Level_01_Account_01_Register {
 	public void beforeClass() {
 		System.out.print(projectPath);
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();			  
+		driver = new FirefoxDriver();	
+		basePage = new BasePage();
 
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	driver.manage().window().maximize();
@@ -36,6 +43,7 @@ public class Level_01_Account_01_Register {
 }
 	@BeforeMethod
 	public void beforeMethod() {
+		driver.findElement(By.xpath("//div[@class='account-cart-wrapper']//span[text()='Account']")).click();
 		driver.findElement(By.xpath("//header[@id='header']//a[text()='My Account']")).click();
 	}
 
@@ -57,7 +65,7 @@ public class Level_01_Account_01_Register {
 	  driver.findElement(By.id("pass")).sendKeys("123");
 	  driver.findElement(By.id("send2")).click();
 
-	  Assert.assertEquals(driver.findElement(By.id("advice-required-entry-pass")).getText(), "Please enter 6 or more characters without leading or trailing spaces.");
+	  Assert.assertEquals(driver.findElement(By.id("advice-validate-password-pass")).getText(), "Please enter 6 or more characters without leading or trailing spaces.");
 	  
   }
   
@@ -67,7 +75,7 @@ public class Level_01_Account_01_Register {
 	  driver.findElement(By.id("pass")).sendKeys("123345");
 	  driver.findElement(By.id("send2")).click();
 
-	  Assert.assertEquals(driver.findElement(By.id("advice-required-entry-email")).getText(), "Please enter a valid email address. For example johndoe@domain.com.");
+	  Assert.assertEquals(driver.findElement(By.id("advice-validate-email-email")).getText(), "Please enter a valid email address. For example johndoe@domain.com.");
 	  
   }
 
