@@ -4,6 +4,7 @@ import java.sql.Driver;
 import java.util.List;
 import java.util.Set;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -42,8 +43,8 @@ public class BasePage {
 		driver.navigate().refresh();
 	}
 	
-	public void waitForElementAlertPresence(WebDriver driver) {
-		new WebDriverWait(driver, longTimeout).until(ExpectedConditions.alertIsPresent());
+	public Alert waitForElementAlertPresence(WebDriver driver) {
+		return new WebDriverWait(driver, longTimeout).until(ExpectedConditions.alertIsPresent());
 		
 	}
 	public void acceptAlert(WebDriver driver) {
